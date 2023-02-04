@@ -9,3 +9,13 @@ configure_file(version.h.in version.h)
 target_include_directories(cpp PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
+                           
+add_subdirectory(MathFunctions)
+target_link_directories(cpp PUBLIC MathFunctions)
+target_include_directories(cpp PUBLIC 
+                            "${PROJECT_BINARY_DIR}"
+                            "${PROJECT_SOURCE_DIR}/MathFunctions"
+                          )       
+                          
+
+

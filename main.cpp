@@ -4,6 +4,8 @@
 
 #include "version.h"
 
+#include "MathFunctions.h"
+
 using namespace std;
 
 std::vector<std::string> list;
@@ -41,6 +43,9 @@ int main(int argc, char* argv[])
     {
         cout << list.at(index) << endl;;
     }
+
+    double sValue = mysqrt(inputValue);
+    cout << "Square root of input value is " << sValue << endl;
     
     return 0;
 }

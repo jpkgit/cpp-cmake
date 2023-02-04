@@ -10,3 +10,7 @@ CMakeFiles/
 cpp
 
 Makefile
+
+.vscode/
+
+main

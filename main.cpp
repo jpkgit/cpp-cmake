@@ -51,7 +51,9 @@ int main(int argc, char* argv[])
 
     clock_stop = clock();
 
-    std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
+    std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
+
+
     
     return 0;
 }

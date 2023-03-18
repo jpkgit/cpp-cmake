@@ -1,6 +1,7 @@
 //#include <cstdlib>
 #include <iostream>
 #include <vector>  
+#include <ctime>
 
 #include "version.h"
 
@@ -32,15 +33,25 @@ int main(int argc, char* argv[])
         std::cout << "Usage: " << argv[0] << " <number>" << std::endl;    
         return -1;
     }
-
+    
     const int inputValue = std::stoi(argv[1]);
-        
-    int result = func1(inputValue);
 
+    clock_t clock_start = clock();   
+    int result = func1(inputValue);
+    clock_t clock_stop = clock();
+
+    std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
+
+    clock_start = clock();   
+    
     for (int index = 0; index < result; index++)
     {
         cout << list.at(index) << endl;;
     }
+
+    clock_stop = clock();
+
+    std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
     
     return 0;
 }

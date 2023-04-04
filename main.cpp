@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     
     for (int index = 0; index < result; index++)
     {
-        cout << list.at(index) << endl;;
+        cout << list.at(index) << " clock(): " << clock() << endl;        
     }
 
     clock_stop = clock();

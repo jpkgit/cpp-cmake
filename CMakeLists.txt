@@ -6,6 +6,7 @@ add_executable(${PROJECT_NAME} "main.cpp")
 
 configure_file(version.h.in version.h)
 
-target_include_directories(cpp PUBLIC
-                           "${PROJECT_BINARY_DIR}"
-                           )
+target_include_directories(cpp PUBLIC "${PROJECT_BINARY_DIR}" )
+
+add_subdirectory(market)
+target_link_libraries(${PROJECT_NAME} market)

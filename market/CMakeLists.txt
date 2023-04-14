@@ -1,0 +1,1 @@
+add_library(market market_item.cc)

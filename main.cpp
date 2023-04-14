@@ -4,6 +4,7 @@
 #include <ctime>
 
 #include "version.h"
+#include "market/market.h"
 
 using namespace std;
 
@@ -18,6 +19,22 @@ int func1(int count)
     }  
     
     return list.size();
+}
+
+int func2(int count)
+{    
+    if (count < 0)
+        return -1;
+
+    void* pIntArr = calloc(count, sizeof(pIntArr));
+    
+    int index = count;
+
+    // while (index > 0)
+    // {
+    //     pIntArr[index] = 1;
+    //     index--;
+    // }
 }
 
 int main(int argc, char* argv[])
@@ -40,18 +57,21 @@ int main(int argc, char* argv[])
     int result = func1(inputValue);
     clock_t clock_stop = clock();
 
+
     std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
 
     clock_start = clock();   
     
     for (int index = 0; index < result; index++)
     {
-        cout << list.at(index) << endl;;
+        cout << list.at(index) << " clock(): " << clock() << endl;        
     }
 
     clock_stop = clock();
 
-    std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
+    std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
+
+    market_item mi;
     
     return 0;
 }

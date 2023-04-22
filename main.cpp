@@ -5,6 +5,8 @@
 
 #include "version.h"
 #include "market/market.h"
+#include "market/market_item.h"
+#include "market/market_item_updater.h"
 
 using namespace std;
 
@@ -71,7 +73,18 @@ int main(int argc, char* argv[])
 
     std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
 
-    market_item mi;
+    market_item mi1;
+    mi1.price = 25.30;
+
+    market ma1;
+    ma1.BondPrice = 101.00;
+    ma1.EquityPrice = 500.00;
+    ma1.CommodityPrice = 4500;
+    ma1.CpiLevel = 1001;
+    ma1.PpiLevel = 1005;
+
+    market_item_updater miu1(&mi1, &ma1);    
+
     
     return 0;
 }

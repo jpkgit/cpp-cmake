@@ -14,3 +14,7 @@ Makefile
 main
 
 build/version.h
+
+build/market/libmarket.a
+
+build/.cmake/api/v1/reply/index-2023-04-22T18-18-48-0226.json

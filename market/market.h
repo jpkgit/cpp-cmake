@@ -1,8 +1,21 @@
-class market_item
+#ifndef MARKET_H
+#define MARKET_H
+
+
+class market
 {
 private:
-    /* data */
+
 public:
-    market_item(/* args */);
-    ~market_item();
+    market(/* args */);
+    ~market();
+
+        /* data */    
+    double EquityPrice;
+    double BondPrice;
+    double CommodityPrice;
+    double CpiLevel;
+    double PpiLevel;
 };
+
+#endif

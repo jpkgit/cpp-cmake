@@ -1,4 +1,4 @@
-#include "market.h"
+#include "market_item.h"
 #include <iostream>
 
 market_item::market_item(/* args */)
@@ -8,4 +8,5 @@ market_item::market_item(/* args */)
 
 market_item::~market_item()
 {
+    std::cout << "market_item destructor" << std::endl;
 }

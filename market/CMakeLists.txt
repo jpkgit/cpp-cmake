@@ -1,1 +1,1 @@
-add_library(market market_item.cc)
+add_library(market market.cc market_item.cc market_item_updater.cc)

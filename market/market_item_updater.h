@@ -7,7 +7,7 @@
 class market_item_updater
 {
 private:
-    /* data */    
+    /* data */        
 public:
     market_item_updater(market_item* mi, market* ma);
     ~market_item_updater();

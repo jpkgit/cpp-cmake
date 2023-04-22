@@ -16,6 +16,13 @@ public:
     double CommodityPrice;
     double CpiLevel;
     double PpiLevel;
+
+
+    double DeltaEquityPrice;
+    double DeltaBondPrice;
+    double DeltaCommodityPrice;
+    double DeltaCpiLevel;
+    double DeltaPpiLevel;
 };
 
 #endif

@@ -74,7 +74,10 @@ int main(int argc, char* argv[])
     std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
 
     market_item mi1;
-    mi1.price = 25.30;
+    mi1.sensitivityBond = 0.1;
+    mi1.sensitivityCommodity = 0.4;
+    mi1.sensitivityEquity = 0.9;
+    mi1.price = 25.30;    
 
     market ma1;
     ma1.BondPrice = 101.00;
@@ -82,6 +85,12 @@ int main(int argc, char* argv[])
     ma1.CommodityPrice = 4500;
     ma1.CpiLevel = 1001;
     ma1.PpiLevel = 1005;
+    
+    ma1.DeltaBondPrice = 1;
+    ma1.DeltaCommodityPrice = 2;
+    ma1.DeltaCpiLevel = 3;
+    ma1.DeltaEquityPrice = 20;
+    ma1.DeltaPpiLevel = 17;
 
     market_item_updater miu1(&mi1, &ma1);    
 

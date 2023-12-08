@@ -2,9 +2,6 @@
 #include <iostream>
 #include <memory>
 
-#include "market_item.h"
-#include "market_item_updater.h"
-
 market::market(/* args */)
 {
     std::cout << "market constructor" << std::endl;
@@ -15,19 +12,24 @@ market::market(/* args */)
     pmi->sensitivityEquity = 0.9;
     pmi->price = 25.30;    
 
-    BondPrice = 101.00;
-    EquityPrice = 500.00;
-    CommodityPrice = 4500;
-    CpiLevel = 1001;
-    PpiLevel = 1005;
-    
-    DeltaBondPrice = 1;
-    DeltaCommodityPrice = 2;
-    DeltaCpiLevel = 3;
-    DeltaEquityPrice = 20;
-    DeltaPpiLevel = 17;
+    std::shared_ptr<market_factors> pmfs = std::make_shared<market_factors>();
 
-    market_item_updater miu1(pmi, this);  
+    pmfs->BondPrice = 101.00;
+    pmfs->EquityPrice = 500.00;
+    pmfs->CommodityPrice = 4500;
+    pmfs->CpiLevel = 1001;
+    pmfs->PpiLevel = 1005;
+    
+    pmfs->DeltaBondPrice = 1;
+    pmfs->DeltaCommodityPrice = 2;
+    pmfs->DeltaCpiLevel = 3;
+    pmfs->DeltaEquityPrice = 20;
+    pmfs->DeltaPpiLevel = 17;
+
+    market_item_updater miu1(pmi, pmfs);      
+
+    for (int index = 0; index < 100; index++)
+        miu1.tick();
 }
 
 market::~market()

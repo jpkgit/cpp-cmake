@@ -1,6 +1,10 @@
 #ifndef MARKET_H
 #define MARKET_H
 
+#include "market_factors.h"
+#include "market_item.h"
+#include "market_item_updater.h"
+
 
 class market
 {
@@ -9,20 +13,6 @@ private:
 public:
     market(/* args */);
     ~market();
-
-        /* data */    
-    double EquityPrice;
-    double BondPrice;
-    double CommodityPrice;
-    double CpiLevel;
-    double PpiLevel;
-
-
-    double DeltaEquityPrice;
-    double DeltaBondPrice;
-    double DeltaCommodityPrice;
-    double DeltaCpiLevel;
-    double DeltaPpiLevel;
 };
 
 #endif

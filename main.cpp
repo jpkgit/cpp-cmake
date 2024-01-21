@@ -35,6 +35,8 @@ int func2(int count)
     //     pIntArr[index] = 1;
     //     index--;
     // }
+
+    return 0;
 }
 
 int main(int argc, char* argv[])

@@ -9,9 +9,10 @@
 class market
 {
 private:
+int m_ticks = 10;
 
 public:
-    market(/* args */);
+    market(int ticks);
     ~market();
 };
 

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/cpp",
-            "args": ["100"],
+            "args": ["10"],
             "environment": [{ "name": "config", "value": "Debug" }],
             "cwd": "${workspaceFolder}"
           }

@@ -2,8 +2,9 @@
 #include <iostream>
 #include <memory>
 
-market::market(/* args */)
+market::market(int ticks)
 {
+    m_ticks = ticks;
     std::cout << "market constructor" << std::endl;
 
     std::shared_ptr<market_item> pmi = std::make_shared<market_item>();
@@ -28,7 +29,7 @@ market::market(/* args */)
 
     market_item_updater miu1(pmi, pmfs);      
 
-    for (int index = 0; index < 100; index++)
+    for (int index = 0; index < m_ticks; index++)
         miu1.tick();
 }
 

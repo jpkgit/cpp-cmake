@@ -81,14 +81,14 @@ int main(int argc, char* argv[])
     clock_start = clock();   
     
     for (int index = 0; index < result; index++)
-    {
-        //cout << list.at(index) << " clock(): " << clock() << endl;        
+    {        
+        logger->info("{} clock(): {}", list.at(index), clock());       
     }
 
-    clock_stop = clock();
-    //std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
+    clock_stop = clock();    
+    logger->info("Clocks: {}  clocker per sec: {}", clock_stop - clock_start, CLOCKS_PER_SEC);
 
-    market marketObj;     
+    market marketObj(inputValue);     
 
     logger->flush();
 

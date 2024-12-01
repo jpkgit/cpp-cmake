@@ -3,6 +3,10 @@
 #include <vector>  
 #include <ctime>
 
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
+
 #include "version.h"
 #include "market/market.h"
 
@@ -41,15 +45,27 @@ int func2(int count)
 
 int main(int argc, char* argv[])
 {
-   
-    std::cout << argv[0] << " Version " 
-        << cpp_VERSION_MAJOR << "."
-        << cpp_VERSION_MINOR << "." 
-        << cpp_VERSION_PATCH << std::endl;
+
+    auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+    console_sink->set_level(spdlog::level::info);  // Console log level
+
+    // Create a file sink
+    auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs.txt", true);  // 'true' appends to the file
+    file_sink->set_level(spdlog::level::info);  // File log level
+
+    // Create a logger with both sinks
+    std::vector<spdlog::sink_ptr> sinks { console_sink, file_sink };
+    auto logger = std::make_shared<spdlog::logger>("multi_sink_logger", sinks.begin(), sinks.end());
+
+    logger->info("This message is logged to both the console and the file.");
+    logger->warn("This is a warning logged to both the console and the file.");
+
+    logger->info("{} Version {}.{}.{}", 
+        argv[0], cpp_VERSION_MAJOR, cpp_VERSION_MINOR, cpp_VERSION_PATCH);
 
     if (argc != 2)    
     {
-        std::cout << "Usage: " << argv[0] << " <number>" << std::endl;    
+        logger->info("Usage: {} <number>", argv[0]);        
         return -1;
     }
     
@@ -60,20 +76,21 @@ int main(int argc, char* argv[])
     clock_t clock_stop = clock();
 
 
-    std::cout << "Clocks: " << clock_stop - clock_start << std::endl;
+    logger->info("Clocks: {}", clock_stop - clock_start);
 
     clock_start = clock();   
     
     for (int index = 0; index < result; index++)
     {
-        cout << list.at(index) << " clock(): " << clock() << endl;        
+        //cout << list.at(index) << " clock(): " << clock() << endl;        
     }
 
     clock_stop = clock();
-    std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
+    //std::cout << "Clocks: " << clock_stop - clock_start << " clocker per sec: " << CLOCKS_PER_SEC << std::endl;
 
     market marketObj;     
 
-    
+    logger->flush();
+
     return 0;
 }

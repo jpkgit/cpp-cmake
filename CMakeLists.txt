@@ -10,3 +10,9 @@ target_include_directories(cpp PUBLIC "${PROJECT_BINARY_DIR}" )
 
 add_subdirectory(market)
 target_link_libraries(${PROJECT_NAME} market)
+
+add_subdirectory(spdlog)
+# Add the spdlog library
+find_package(spdlog REQUIRED)
+# Link spdlog to your target
+target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
